@@ -16,6 +16,8 @@ import { TbBeach } from 'react-icons/tb'
 import { TbToolsKitchen2 } from 'react-icons/tb'
 import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
+import { DateRange } from 'react-date-range'
+import 'react-date-range/dist/styles.css'; 
 
 const arrow = (
   onClickHandler: Function,
@@ -73,8 +75,31 @@ const OfferItem = ({ icon, title }: { icon: JSX.Element; title: string }) => {
   )
 }
 
+const WhereSleep = () => {
+  return (
+    <div className="h-52 w-36 rounded-md overflow-hidden relative group/hov xl:h-60 xl:w-44">
+      <img
+        src={`https://source.unsplash.com/random/?productivity,city,${Math.random()}`}
+        alt="City"
+        className="w-full h-full object-cover filt group-hover/hov:opacity-50 transition-opacity duration-200"
+      />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-bold">
+        <p>1 beadroom</p>
+      </div>
+    </div>
+  )
+}
+
 const Item = () => {
   const [showDesc, setShowDesc] = useState(false)
+  const [state, setState] = useState([
+    {
+      startDate: new Date(),
+      endDate: null,
+      key: 'selection',
+    },
+  ])
+
   return (
     <>
       <div className="hidden md:block">
@@ -108,6 +133,7 @@ const Item = () => {
           className="overflow-hidden group/carro relative itemCarrousel md:rounded-lg"
           showStatus={false}
           infiniteLoop
+          swipeable
         >
           <img
             src={`https://source.unsplash.com/random/?productivity,city,${Math.random()}`}
@@ -141,13 +167,16 @@ const Item = () => {
 
       {/* description */}
       <div className="container flex justify-between items-start">
+        {/* left side */}
         <div className="w-full md:w-[60%]">
           <div className="flex justify-between items-center px-3 mt-5 border-b pb-3">
             <div>
               <h1 className="text-xl w-[70%] xl:text-2xl">
                 Entire home hosted by Massupha
               </h1>
-              <p className="text-sm xl:mt-2">16+ guests. 5 bedrooms. 9 beds. 6 baths</p>
+              <p className="text-sm xl:mt-2">
+                16+ guests. 5 bedrooms. 9 beds. 6 baths
+              </p>
             </div>
             <div className="">
               <img
@@ -175,7 +204,11 @@ const Item = () => {
             />
           </div>
           <div className="mt-5 border-b pb-5 px-2 md:px-0">
-            <p className={`${showDesc ? '' : 'line-clamp-4'} text-sm xl:text-base`}>
+            <p
+              className={`${
+                showDesc ? '' : 'line-clamp-4'
+              } text-sm xl:text-base`}
+            >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
               esse aperiam debitis accusamus alias totam quis ea? Blanditiis
               exercitationem laborum dolore, fuga facilis, nostrum esse sit,
@@ -213,7 +246,10 @@ const Item = () => {
               nostrum impedit at labore optio commodi, quos voluptate quaerat
               error necessitatibus enim repellat minima hic rerum saepe non sed.
             </p>
-            <button className='xl:text-lg' onClick={() => setShowDesc((r) => !r)}>
+            <button
+              className="xl:text-lg"
+              onClick={() => setShowDesc((r) => !r)}
+            >
               {showDesc ? 'Read Less' : 'Read More'}
             </button>
           </div>
@@ -230,7 +266,37 @@ const Item = () => {
               Show All
             </button>
           </div>
+          <div className="mt-5 border-b pb-5 px-2 md:px-0 relative">
+            <h1 className="text-2xl font-semibold">Where you will sleep</h1>
+            <div className="overflow-auto w-full scrollbar-none mt-5 md:scrollbar-thin md:pb-2 md:scrollbar-thumb-pink-600 md:scrollbar-track-pink-100">
+              <BsFillArrowRightCircleFill className="absolute top-1/2 right-2 z-10 text-white animate-bounce-left -translate-y-1/2" />
+              <div className="flex flex-nowrap w-fit gap-3 xl:gap-5">
+                <WhereSleep />
+                <WhereSleep />
+                <WhereSleep />
+                <WhereSleep />
+                <WhereSleep />
+                <WhereSleep />
+              </div>
+            </div>
+          </div>
+          <div className="mt-5 border-b pb-5 px-2 md:px-0 relative">
+            <h1 className="text-2xl font-semibold">Select check-in date</h1>
+            <p className="opacity-60">
+              Add your travel dates for exact pricing
+            </p>
+            <div>
+              <DateRange
+                editableDateInputs={true}
+                onChange={(item) => setState([item.selection])}
+                moveRangeOnFirstSelection={false}
+                ranges={state}
+              />
+            </div>
+          </div>
         </div>
+
+        {/* right side */}
         <div className="hidden md:flex sticky top-20 w-[40%] mt-28 justify-center">
           <div className="w-[90%]  p-10 border shadow-md h-fit rounded-2xl">
             <h1 className="text-2xl">
@@ -250,8 +316,11 @@ const Item = () => {
               </div>
               <div className="flex justify-center mt-8 flex-col items-center">
                 <p className="font-semibold">Add guests</p>
-                <select defaultValue='a' className="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-fit mt-2">
-                  <option value='a'>Choose a country</option>
+                <select
+                  defaultValue="a"
+                  className="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 w-fit mt-2"
+                >
+                  <option value="a">Choose a country</option>
                   <option value="US">United States</option>
                   <option value="CA">Canada</option>
                   <option value="FR">France</option>

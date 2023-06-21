@@ -1,0 +1,38 @@
+.con {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 600px) {
+  .con {
+    max-width: 600px;
+  }
+}
+@media (min-width: 728px) {
+  .con {
+    max-width: 728px;
+  }
+}
+@media (min-width: 984px) {
+  .con {
+    max-width: 984px;
+  }
+}
+@media (min-width: 1240px) {
+  .con {
+    max-width: 1240px;
+  }
+}
+@media (min-width: 1696px) {
+  .con {
+    max-width: 1240px;
+  }
+}
+
+.topSelect button{
+  @apply border-r px-4 last:border-r-0
+}
+
+.itemCarrousel img {
+ @apply w-full aspect-video object-cover 
+}

@@ -16,7 +16,6 @@ import { TbBeach } from 'react-icons/tb'
 import { TbToolsKitchen2 } from 'react-icons/tb'
 import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
-import { DateRange } from 'react-date-range'
 import 'react-date-range/dist/styles.css'
 import Reviews from '@/components/propaty/Reviews'
 
@@ -318,7 +317,7 @@ const Item = () => {
             <button className="bg-pink-600 w-full py-2 rounded-xl text-lg font-bold text-white mt-5 active:scale-95">
               Reserve
             </button>
-            <p className="text-center mt-3">You won't yet charge.</p>
+            <p className="text-center mt-3">You wont yet charge.</p>
           </div>
         </div>
       </div>

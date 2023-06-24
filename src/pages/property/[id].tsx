@@ -2,7 +2,7 @@
 import MobuleNav from '@/components/propaty/MobuleNav'
 import Nav from '@/components/shared/Nav'
 import { useState } from 'react'
-import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
+import { AiFillHeart, AiFillStar, AiOutlineHeart } from 'react-icons/ai'
 import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
@@ -17,7 +17,8 @@ import { TbToolsKitchen2 } from 'react-icons/tb'
 import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { DateRange } from 'react-date-range'
-import 'react-date-range/dist/styles.css'; 
+import 'react-date-range/dist/styles.css'
+import Reviews from '@/components/propaty/Reviews'
 
 const arrow = (
   onClickHandler: Function,
@@ -110,7 +111,7 @@ const Item = () => {
       <MobuleNav />
 
       {/* mobile bottob bar */}
-      <div className="fixed bottom-0 left-0 right-0 flex justify-between px-6 bg-white bg-opacity-20 backdrop-blur-sm md:hidden py-2 items-center">
+      <div className="fixed z-50 bottom-0 left-0 right-0 flex justify-between px-6 bg-white bg-opacity-20 backdrop-blur-sm md:hidden py-2 items-center">
         <div>
           <p className="font-semibold">$1000 night</p>
           <p className="text-sm">may12-20</p>
@@ -280,20 +281,6 @@ const Item = () => {
               </div>
             </div>
           </div>
-          <div className="mt-5 border-b pb-5 px-2 md:px-0 relative">
-            <h1 className="text-2xl font-semibold">Select check-in date</h1>
-            <p className="opacity-60">
-              Add your travel dates for exact pricing
-            </p>
-            <div>
-              <DateRange
-                editableDateInputs={true}
-                onChange={(item) => setState([item.selection])}
-                moveRangeOnFirstSelection={false}
-                ranges={state}
-              />
-            </div>
-          </div>
         </div>
 
         {/* right side */}
@@ -335,9 +322,28 @@ const Item = () => {
           </div>
         </div>
       </div>
+      <div className="container mt-10 px-3 md:px-0">
+        <h1 className="flex items-center gap-1 text-2xl">
+          <AiFillStar />
+          4.90 · 430 reviews
+        </h1>
+        <div className="gap-10 mt-5 grid grid-cols-1 md:grid-cols-2">
+          <Reviews />
+          <Reviews />
+          <Reviews />
+          <Reviews />
+          <Reviews />
+          <Reviews />
+        </div>
+      </div>
+
+      <div className="container mt-10 px-3 md:px-0">
+        <h1 className="text-2xl font-semibold">Location</h1>
+      </div>
 
       <div className="h-20"></div>
     </>
+
   )
 }
 

@@ -35,6 +35,9 @@ dependencies:
   next:
     specifier: 13.4.6
     version: 13.4.6(react-dom@18.2.0)(react@18.2.0)
+  node-device-detector:
+    specifier: ^2.0.14
+    version: 2.0.14
   postcss:
     specifier: 8.4.24
     version: 8.4.24
@@ -1889,6 +1892,13 @@ packages:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
+    dev: false
+
+  /node-device-detector@2.0.14:
+    resolution: {integrity: sha512-zL9bpA0cboKZmhU5hPdR5cbNVCB+V8u0ue2otGlhAH7jD4KxaaUU6ikq7+jNIlTCIcEV1+4FXh6KNdWiburOFw==}
+    engines: {node: '>= 10.x', npm: '>= 6.x'}
+    dependencies:
+      js-yaml: 4.1.0
     dev: false
 
   /node-releases@2.0.12:

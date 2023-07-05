@@ -1,16 +1,7 @@
 import { motion } from 'framer-motion'
+import BaseChild from './BaseChild'
 
 const LastState = () => {
-  return (
-    <motion.div
-    transition={{ duration: 2 }}
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 100 }}
-    exit={{ opacity: 0 }}
-    className='bg-pink-600 h-full bg-opacity-60'
-  >
-    last stape
-  </motion.div>
-  )
+  return <BaseChild>last stape</BaseChild>
 }
 export default LastState

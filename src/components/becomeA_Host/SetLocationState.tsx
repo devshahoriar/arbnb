@@ -1,13 +1,6 @@
 import { motion } from 'framer-motion'
+import BaseChild from './BaseChild'
 const SetLocationState = () => {
-  return  <motion.div
-  transition={{ duration: 2 }}
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 100 }}
-  exit={{ opacity: 0 }}
-  className='bg-green-600 h-full bg-opacity-60'
->
- set locatin stape
-</motion.div>
+  return <BaseChild className='bg-green-600'>set locatin stape</BaseChild>
 }
 export default SetLocationState

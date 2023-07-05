@@ -58,7 +58,7 @@ const BecomeHost = () => {
               Back
             </button>
             <button className="btn btn-sm rounded-full" onClick={_hendelNext}>
-              Next
+              {intStape === 4 ? 'Finish' : 'Next'}
             </button>
           </div>
         </div>

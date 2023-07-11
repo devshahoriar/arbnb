@@ -4,7 +4,14 @@ import Stape from '@/components/becomeA_Host/Stape'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
-export const staps: string[] = ['start', 'location', 'space', 'price', 'finish']
+export const staps: string[] = [
+  'start',
+  'type',
+  'location',
+  'space',
+  'price',
+  'finish',
+]
 
 const BecomeHost = () => {
   const router = useRouter()
@@ -13,16 +20,16 @@ const BecomeHost = () => {
   const [intStape, setIntStape] = useState<number>(0)
   // console.log(router.query)
   const _hendelNext = () => {
-    if (intStape < 4) {
+    if (intStape < staps.length - 1) {
       setIntStape(intStape + 1)
-      setPersentage(persentage + 25)
+      setPersentage(persentage + 100 / (staps.length - 1))
     }
   }
 
   const _hendelBack = () => {
     if (intStape > 0) {
       setIntStape(intStape - 1)
-      setPersentage(persentage - 25)
+      setPersentage(persentage - 100 / (staps.length - 1))
     }
   }
 
@@ -40,7 +47,7 @@ const BecomeHost = () => {
           </button>
         </div>
 
-        <div className="flex-1 bg-slate-600 bg-opacity-10">
+        <div className="flex-1">
           <BaseStape
             intStape={intStape}
             persentage={persentage}
@@ -58,7 +65,7 @@ const BecomeHost = () => {
               Back
             </button>
             <button className="btn btn-sm rounded-full" onClick={_hendelNext}>
-              {intStape === 4 ? 'Finish' : 'Next'}
+              {intStape === 5 ? 'Finish' : 'Next'}
             </button>
           </div>
         </div>

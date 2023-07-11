@@ -7,18 +7,18 @@ interface Props {
 }
 
 const BaseChild = ({ children, className }: Props) => {
-  const [isPresent, safeToRemove] = usePresence()
+  // const [isPresent, safeToRemove] = usePresence()
 
-  useEffect(() => {
-    !isPresent && setTimeout(safeToRemove, 500)
-  }, [isPresent])
+  // useEffect(() => {
+  //   !isPresent && setTimeout(safeToRemove, 500)
+  // }, [isPresent])
   return (
     <motion.div
-      transition={{ duration: 0.5 }}
-      initial={{ opacity: 0,y: 100 }}
-      animate={{ opacity: 100,y: 0 }}
-      exit={{ opacity: 0 ,y: 100}}
-      className={`${className} bg-pink-600 h-full bg-opacity-60`}
+      transition={{ duration: 0.05 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 100 }}
+      exit={{ opacity: 0 }}
+      className={`${className}  h-full`}
     >
       {children}
     </motion.div>

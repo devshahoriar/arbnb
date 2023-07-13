@@ -27,7 +27,7 @@ export default function Home() {
         className="hover:shadow-2xl fixed bottom-20 left-1/2 bg-stone-500 -translate-x-1/2 bg-opacity-25 backdrop-blur-md px-5 py-2 rounded-2xl flex items-center gap-5 text-white font-semibold text-xl z-50"
       >
         <FaMapMarkedAlt />
-        <p>Go to maps</p>
+        <p>Go to map</p>
       </Link>
       <BottomDesktopFooter />
     </>

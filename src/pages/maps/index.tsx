@@ -18,7 +18,7 @@ const index = () => {
       <NavFilter />
       <div style={{ height: '100vh', width: '100%' }} className='mt-10'>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: '' }}
+          bootstrapURLKeys={{ key: 'AIzaSyDvipoA5dBlxWXuXctizbINF1YYuWUzvBQ' }}
           defaultCenter={defaultProps.center}
           defaultZoom={defaultProps.zoom}
         ></GoogleMapReact>

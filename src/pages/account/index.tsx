@@ -5,6 +5,7 @@ const index = () => {
   return (
     <>
       <Nav />
+      account gose there
     </>
   )
 }

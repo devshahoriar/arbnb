@@ -30,7 +30,12 @@ export const ItemInputImage = ({ title, className }: any) => {
             multiple={false}
             ref={inputRef}
             accept="image/*"
-            onChange={(e) => setImage(e.currentTarget.files[0])}
+            onChange={(e) =>
+              setImage(() => {
+                if (!e.target.files || e.target.files.length === 0) return
+                setImage(e.target.files?.[0])
+              })
+            }
           />
           <button
             onClick={() => inputRef.current?.click()}
